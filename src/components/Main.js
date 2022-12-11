@@ -1,24 +1,9 @@
-export const Main = (props) => {
-  const todo_list = props.items.map((el, index) => (
-    <li key={index}>
-      <div className="view">
-        <input className="toggle" type="checkbox" checked={el.completed} />
-        <label>{el.title}</label>
-        <button
-          className="destroy"
-          onClick={() => {
-            console.log(index);
-          }}
-        />
-      </div>
-      <input className="edit" />
-    </li>
-  ));
-
+import { TodoList } from "./TodoList";
+export const Main = ({ items, removeTodo }) => {
   return (
     <section className="main">
       <input className="toggle-all" type="checkbox" />
-      <ul className="todo-list">{todo_list}</ul>
+      <TodoList items={items} removeTodo={removeTodo} />
     </section>
   );
 };
